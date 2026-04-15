@@ -1,3 +1,9 @@
+const supabaseUrl = 'https://izyg...supabase.co'
+const supabaseKey = 'your-anon-key-here'
+const _supabase = supabase.createClient(supabaseUrl, supabaseKey)
+
+// Now you can use _supabase anywhere below in this file!
+
 // 1. Setup the connection (Replace with your actual keys from 
 // Initialize Supabase (Use your actual URL and Anon Key from Project Settings > API)
 const supabaseUrl = 'https://supabase.co'
