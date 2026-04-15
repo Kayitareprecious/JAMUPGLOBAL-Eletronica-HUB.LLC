@@ -1,3 +1,32 @@
+// 1. Setup the connection (Replace with your actual keys from 
+// Initialize Supabase (Use your actual URL and Anon Key from Project Settings > API)
+const supabaseUrl = 'https://supabase.co'
+const supabaseKey = 'your-anon-public-key'
+const _supabase = supabase.createClient(supabaseUrl, supabaseKey)
+
+// Example function to SAVE data (linked to your database table)
+async function saveData(name, msg) {
+    const { data, error } = await _supabase
+        .from('website_data')
+        .insert([{ user_name: name, message: msg }])
+    
+    if (error) {
+        console.error('Error saving:', error.message)
+    } else {
+        console.log('Success! Data saved to Supabase.')
+    }
+}
+
+// Example function to FETCH data to show on your site
+async function loadData() {
+    const { data, error } = await _supabase
+        .from('website_data')
+        .select('*')
+    
+    if (error) console.error('Error loading:', error.message)
+    else console.log('Your database items:', data)
+}
+
 var EI=Object.defineProperty;var DE=e=>{throw TypeError(e)};var CI=(e,t,n)=>t in e?EI(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n;var wi=(e,t,n)=>CI(e,typeof t!="symbol"?t+"":t,n),cg=(e,t,n)=>t.has(e)||DE("Cannot "+n);var re=(e,t,n)=>(cg(e,t,"read from private field"),n?n.call(e):t.get(e)),Ie=(e,t,n)=>t.has(e)?DE("Cannot add the same private member more than once"):t instanceof WeakSet?t.add(e):t.set(e,n),Oe=(e,t,n,r)=>(cg(e,t,"write to private field"),r?r.call(e,n):t.set(e,n),n),tn=(e,t,n)=>(cg(e,t,"access private method"),n);var Jd=(e,t,n,r)=>({set _(i){Oe(e,t,i,n)},get _(){return re(e,t,r)}});function Yp(e,t){for(var n=0;n<t.length;n++){const r=t[n];if(typeof r!="string"&&!Array.isArray(r)){for(const i in r)if(i!=="default"&&!(i in e)){const s=Object.getOwnPropertyDescriptor(r,i);s&&Object.defineProperty(e,i,s.get?s:{enumerable:!0,get:()=>r[i]})}}}return Object.freeze(Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}))}(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const s of i)if(s.type==="childList")for(const l of s.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&r(l)}).observe(document,{childList:!0,subtree:!0});function n(i){const s={};return i.integrity&&(s.integrity=i.integrity),i.referrerPolicy&&(s.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?s.credentials="include":i.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function r(i){if(i.ep)return;i.ep=!0;const s=n(i);fetch(i.href,s)}})();var eh=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function Ge(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}var fg={exports:{}},$u={};/**
  * @license React
  * react-jsx-runtime.production.js
